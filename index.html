@@ -15,28 +15,34 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #1B3A5C;
     --navy-deep: #0f2438;
-    --gold: #C5A258;
+    --gold: #D4A853;
     --gold-light: #F5EDD6;
-    --cream: #F7F5F0;
+    --cream: #FBF8F4;
     --white: #FFFFFF;
     --text: #1C1C1E;
     --text2: #636366;
     --text3: #8E8E93;
     --sep: #E5E5EA;
-    --rose: #C62828;
+    --coral: #D05A42;
     --green-bg: #E8F5E9;
     --green: #2E7D32;
     --blue-bg: #E3F2FD;
     --blue: #1565C0;
     --orange-bg: #FFF3E0;
     --orange: #E65100;
-    --radius: 14px;
+    --radius: 16px;
     --nav-h: 52px;
+    --day-cinci: #3D5A80;
+    --day-horse: #4A7A5A;
+    --day-oaks: #C4587A;
+    --day-derby: #D05A42;
+    --day-sunday: #7B6BAC;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,7 +53,7 @@
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
     background: var(--cream);
     color: var(--text);
     line-height: 1.55;
@@ -58,51 +64,101 @@
 
   /* ─── HERO ─── */
   .hero {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    background: linear-gradient(160deg, rgba(15,36,56,0.88) 0%, rgba(15,36,56,0.75) 100%),
+                url('hero-bg.jpg') center/cover no-repeat;
+    background-color: var(--navy-deep);
     color: white;
-    padding: calc(env(safe-area-inset-top, 12px) + 24px) 20px 22px;
+    padding: calc(env(safe-area-inset-top, 12px) + 40px) 20px 40px;
     text-align: center;
   }
   .hero h1 {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 28px;
+    font-size: 38px;
     font-weight: 900;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
   }
   .hero-sub {
     color: var(--gold);
     font-size: 14px;
     font-weight: 600;
-    margin-top: 4px;
+    margin-top: 6px;
     letter-spacing: 1px;
   }
   .hero-dates {
     font-size: 13px;
     opacity: 0.6;
-    margin-top: 2px;
+    margin-top: 3px;
   }
   .hero-crew {
-    margin-top: 14px;
+    margin-top: 16px;
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
   }
   .hero-crew span {
-    background: rgba(197,162,88,0.15);
-    border: 1px solid rgba(197,162,88,0.25);
-    padding: 5px 14px;
-    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 6px 16px;
+    border-radius: 24px;
     font-size: 13px;
     font-weight: 500;
   }
 
-  /* ─── STICKY NAV ─── */
+  /* ─── COUNTDOWN ─── */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .cd-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 10px 14px;
+    min-width: 60px;
+    text-align: center;
+  }
+  .cd-num {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  .cd-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    color: white;
+    margin-top: 4px;
+    display: block;
+  }
+  .countdown-live {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    padding: 10px 0;
+  }
+
+  /* ─── STICKY NAV — FROSTED GLASS ─── */
   .day-nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--white);
-    border-bottom: 1px solid var(--sep);
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
     padding: 0;
     height: var(--nav-h);
     display: flex;
@@ -127,9 +183,9 @@
     font-weight: 600;
     text-decoration: none;
     color: var(--text2);
-    background: var(--cream);
+    background: rgba(255,255,255,0.6);
     border: 1px solid var(--sep);
-    transition: all 0.2s;
+    transition: all 0.25s;
     white-space: nowrap;
   }
   .nav-pill.active {
@@ -137,10 +193,18 @@
     color: white;
     border-color: var(--navy);
   }
+  /* Day-specific active pill colors */
+  .nav-pill.active[data-day="day1"] { background: var(--day-cinci); border-color: var(--day-cinci); }
+  .nav-pill.active[data-day="day2"] { background: var(--day-horse); border-color: var(--day-horse); }
+  .nav-pill.active[data-day="oaks"] { background: var(--day-oaks); border-color: var(--day-oaks); }
+  .nav-pill.active[data-day="derby"] { background: var(--day-derby); border-color: var(--day-derby); }
+  .nav-pill.active[data-day="sunday"] { background: var(--day-sunday); border-color: var(--day-sunday); }
+  .nav-pill.active[data-day="book"] { background: var(--navy); border-color: var(--navy); }
+
   .view-toggle {
     flex-shrink: 0;
     display: flex;
-    background: var(--cream);
+    background: rgba(255,255,255,0.6);
     border-radius: 8px;
     margin-right: 12px;
     overflow: hidden;
@@ -175,7 +239,8 @@
     border-radius: var(--radius);
     padding: 20px;
     margin: 16px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    border: 1px solid var(--sep);
     font-size: 15px;
     color: var(--text2);
     line-height: 1.7;
@@ -193,10 +258,25 @@
 
   .day-banner {
     border-radius: var(--radius);
-    padding: 16px 20px;
+    padding: 20px 22px;
     color: white;
     position: relative;
     overflow: hidden;
+  }
+  .banner-emoji {
+    font-size: 28px;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .banner-circle {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    pointer-events: none;
   }
   .day-banner .day-label {
     font-size: 11px;
@@ -216,13 +296,12 @@
     opacity: 0.85;
     font-style: italic;
   }
-  .bg-cinci    { background: linear-gradient(135deg, #1B3A5C, #2a5a8c); }
-  .bg-horse    { background: linear-gradient(135deg, #2E5339, #4a8c5e); }
-  .bg-arrive   { background: linear-gradient(135deg, #5c3d1e, #8c6a3d); }
-  .bg-oaks     { background: linear-gradient(135deg, #8c1b6e, #E91E8C); }
-  .bg-derby    { background: linear-gradient(135deg, #C62828, #e64a19); }
-  .bg-sunday   { background: linear-gradient(135deg, #b8942d, #d4a84a); color: var(--navy); }
-  .bg-book     { background: linear-gradient(135deg, #1B3A5C, #C5A258); }
+  .bg-cinci    { background: linear-gradient(135deg, #3D5A80, #5B87B5); }
+  .bg-horse    { background: linear-gradient(135deg, #4A7A5A, #6BA07A); }
+  .bg-oaks     { background: linear-gradient(135deg, #C4587A, #E88BA8); }
+  .bg-derby    { background: linear-gradient(135deg, #D05A42, #E8836E); }
+  .bg-sunday   { background: linear-gradient(135deg, #7B6BAC, #A99AD4); }
+  .bg-book     { background: linear-gradient(135deg, #1B3A5C, var(--gold)); }
 
   .day-vibe {
     background: var(--white);
@@ -232,11 +311,13 @@
     font-size: 14px;
     color: var(--text2);
     line-height: 1.7;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    font-style: italic;
+    border-left: 3px solid var(--gold);
   }
 
   .tip-box {
-    background: var(--gold-light);
+    background: linear-gradient(135deg, #FBF3E0, #FFF8EE);
     border-left: 3px solid var(--gold);
     border-radius: 0 var(--radius) var(--radius) 0;
     padding: 14px 16px;
@@ -244,6 +325,7 @@
     font-size: 14px;
     color: #5a4a2a;
     line-height: 1.6;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   }
   .tip-box strong { color: var(--navy); }
 
@@ -252,12 +334,16 @@
     background: var(--white);
     border-radius: var(--radius);
     margin: 8px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
     overflow: hidden;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, transform 0.15s;
+  }
+  .activity:active {
+    transform: scale(0.985);
   }
   .activity.highlight {
-    border-left: 4px solid var(--rose);
+    border-left: 4px solid var(--coral);
+    background: linear-gradient(135deg, rgba(208,90,66,0.03) 0%, var(--white) 100%);
   }
   .activity-head {
     display: flex;
@@ -279,13 +365,13 @@
     color: white;
     font-size: 12px;
     font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
     margin-top: 1px;
     white-space: nowrap;
   }
   .highlight .time-badge {
-    background: var(--rose);
+    background: var(--coral);
   }
   .activity-title {
     flex: 1;
@@ -342,12 +428,13 @@
     padding: 11px 14px;
     border-radius: 10px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
     min-height: 44px;
-    transition: opacity 0.15s;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: opacity 0.15s, transform 0.15s;
   }
-  .link-btn:active { opacity: 0.7; }
+  .link-btn:active { opacity: 0.7; transform: scale(0.97); }
   .link-btn.map  { background: var(--green-bg); color: var(--green); }
   .link-btn.web  { background: var(--blue-bg); color: var(--blue); }
   .link-btn.book { background: var(--orange-bg); color: var(--orange); }
@@ -365,7 +452,7 @@
     background: var(--white);
     border-radius: var(--radius);
     margin: 10px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
     overflow: hidden;
   }
   .option-header {
@@ -414,7 +501,7 @@
     border-radius: var(--radius);
     margin: 20px 0;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
   }
   .checklist-header {
     display: flex;
@@ -476,7 +563,7 @@
     border-radius: var(--radius);
     margin: 8px 0;
     padding: 16px 18px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
   }
   .book-card h4 {
     font-size: 15px;
@@ -507,11 +594,23 @@
 
   /* ─── FOOTER ─── */
   .footer {
-    background: var(--navy-deep);
+    background: linear-gradient(180deg, #162e48 0%, var(--navy-deep) 40%, #0a1a2a 100%);
     color: white;
     padding: 32px 20px calc(32px + env(safe-area-inset-bottom, 0px));
     text-align: center;
     margin-top: 24px;
+    position: relative;
+  }
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 50px;
+    background: radial-gradient(ellipse, rgba(212,168,83,0.2) 0%, transparent 70%);
+    pointer-events: none;
   }
   .footer p {
     font-size: 14px;
@@ -521,10 +620,21 @@
     margin: 0 auto;
   }
   .footer .sign-off {
-    margin-top: 16px;
+    margin-top: 20px;
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 20px;
+    font-size: 28px;
     color: var(--gold);
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* ─── QUICK VIEW MODE ─── */
@@ -535,6 +645,24 @@
   body.quick-view .activity-links { padding-top: 0; }
   body.quick-view .links-row { padding-top: 0; }
   body.quick-view .option-body { display: none; }
+
+  /* ─── REDUCED MOTION ─── */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .reveal.revealed {
+      transition: none;
+    }
+    .activity, .link-btn {
+      transition: none !important;
+    }
+    .activity:active, .link-btn:active {
+      transform: none !important;
+    }
+  }
 
   /* ─── RESPONSIVE ─── */
   @media (min-width: 640px) {
@@ -555,6 +683,12 @@
     <span>Don &amp; Ella</span>
     <span>Danny &amp; Alexis</span>
   </div>
+  <div class="countdown" id="countdown">
+    <div class="cd-box"><span class="cd-num" id="cd-days">--</span><span class="cd-label">days</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">hours</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">min</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">sec</span></div>
+  </div>
 </header>
 
 <nav class="day-nav" id="dayNav">
@@ -574,7 +708,7 @@
 
 <main class="container">
 
-  <div class="intro-card">
+  <div class="intro-card reveal">
     <p>This isn't a normal vacation. It's five days designed around one idea: <em>pack in everything, waste nothing, make the kind of memories that stick for decades.</em></p>
     <p>We start in <strong>Cincinnati</strong> &mdash; a museum on the border between slavery and freedom, dinner at a top-100 restaurant, and a sunset from 85 stone steps above the Ohio River. Then we wake up before the sun and drive into <strong>Kentucky horse country</strong> &mdash; Thoroughbreds thundering past at 40 mph, breakfast with jockeys, hand-feeding baby foals, and railbikes through the Bluegrass. Then <strong>Louisville</strong> &mdash; Kentucky's most famous dish, Oaks Day under the lights, and the Derby itself in premium seats.</p>
     <p style="font-size:13px;color:var(--text3);">Tap any activity to show or hide details. Tap &#x1F5FA;&#xFE0F; above for a quick-reference view.</p>
@@ -582,17 +716,19 @@
 
   <!-- ═══════ DAY 1 — CINCINNATI ═══════ -->
   <section class="day-section" id="day1">
-    <div class="day-banner bg-cinci">
+    <div class="day-banner bg-cinci reveal">
+      <div class="banner-emoji">&#x1F3D9;&#xFE0F;</div>
+      <div class="banner-circle"></div>
       <div class="day-label">Day 1 &middot; Wednesday, April 29</div>
       <h2>Cincinnati</h2>
       <div class="tagline">The Earned View</div>
     </div>
 
-    <div class="day-vibe">We land at 2:48 PM and hit the ground running. By 9 PM we'll have stood on the banks of the Ohio River where enslaved people crossed to freedom, eaten housemade pasta at a top-100 restaurant, climbed 85 stone steps to the highest point in Cincinnati, and watched the entire skyline light up beneath us.</div>
+    <div class="day-vibe reveal">We land at 2:48 PM and hit the ground running. By 9 PM we'll have stood on the banks of the Ohio River where enslaved people crossed to freedom, eaten housemade pasta at a top-100 restaurant, climbed 85 stone steps to the highest point in Cincinnati, and watched the entire skyline light up beneath us.</div>
 
-    <div class="tip-box"><strong>Rain plan:</strong> Freedom Center, dinner, and Graeter's are all indoors &mdash; no changes needed. <strong>If it's raining, skip Mt. Adams</strong> (stone steps get slippery, no sunset to see). Instead, spend more time exploring OTR after dinner &mdash; <strong>Rhinegeist Brewery</strong> (1910 Elm St, massive taproom &mdash; root beer for you, something stronger for the dads) or the <strong>OTR Candy Bar</strong> (vintage soda floats).</div>
+    <div class="tip-box reveal"><strong>Rain plan:</strong> Freedom Center, dinner, and Graeter's are all indoors &mdash; no changes needed. <strong>If it's raining, skip Mt. Adams</strong> (stone steps get slippery, no sunset to see). Instead, spend more time exploring OTR after dinner &mdash; <strong>Rhinegeist Brewery</strong> (1910 Elm St, massive taproom &mdash; root beer for you, something stronger for the dads) or the <strong>OTR Candy Bar</strong> (vintage soda floats).</div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">2:48 PM</span>
         <div class="activity-title"><div class="activity-name">Land at CVG Airport</div></div>
@@ -603,7 +739,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">4:15 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://freedomcenter.org" target="_blank">National Underground Railroad Freedom Center</a></div></div>
@@ -618,7 +754,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">5:00 PM</span>
         <div class="activity-title"><div class="activity-name">Explore Over-the-Rhine</div></div>
@@ -632,7 +768,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">6:15 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.peppanddolores.com" target="_blank">Dinner &mdash; Pepp &amp; Dolores</a></div></div>
@@ -648,7 +784,7 @@
       </div></div>
     </div>
 
-    <div class="activity highlight">
+    <div class="activity highlight reveal">
       <div class="activity-head">
         <span class="time-badge">7:45 PM</span>
         <div class="activity-title"><div class="activity-name">Mt. Adams &amp; The Immaculata Steps</div></div>
@@ -662,7 +798,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">9:00 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.graeters.com" target="_blank">Graeter's Ice Cream</a></div></div>
@@ -677,7 +813,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">9:30 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.hotelcovington.com" target="_blank">Hotel Covington</a></div></div>
@@ -695,19 +831,21 @@
 
   <!-- ═══════ DAY 2 — HORSE COUNTRY + LOUISVILLE ARRIVAL ═══════ -->
   <section class="day-section" id="day2">
-    <div class="day-banner bg-horse">
+    <div class="day-banner bg-horse reveal">
+      <div class="banner-emoji">&#x1F40E;</div>
+      <div class="banner-circle"></div>
       <div class="day-label">Day 2 &middot; Thursday, April 30</div>
       <h2>Horse Country</h2>
       <div class="tagline">Before the World Wakes Up</div>
     </div>
 
-    <div class="day-vibe">This is the day that separates this trip from anything you've done before. Thoroughbreds thundering past close enough to feel the air move. Three private horse farms where you'll hand-feed baby foals. Railbikes through the Bluegrass to a bridge 283 feet above the Kentucky River. The most beautiful drive in the eastern United States. Yes, we're waking up at 5:30 AM. Trust the process.</div>
+    <div class="day-vibe reveal">This is the day that separates this trip from anything you've done before. Thoroughbreds thundering past close enough to feel the air move. Three private horse farms where you'll hand-feed baby foals. Railbikes through the Bluegrass to a bridge 283 feet above the Kentucky River. The most beautiful drive in the eastern United States. Yes, we're waking up at 5:30 AM. Trust the process.</div>
 
-    <div class="tip-box"><strong>Thurby note:</strong> Churchill Downs has Thursday racing (gates open 10:30 AM) &mdash; it's called Thurby and Louisville locals love it &mdash; but we're skipping it for horse country. What we'll see today is something you can't get at the track.</div>
+    <div class="tip-box reveal"><strong>Thurby note:</strong> Churchill Downs has Thursday racing (gates open 10:30 AM) &mdash; it's called Thurby and Louisville locals love it &mdash; but we're skipping it for horse country. What we'll see today is something you can't get at the track.</div>
 
-    <div class="tip-box"><strong>Rain plan:</strong> Horse country works in rain! Keeneland workouts run unless lightning. Farm tours run rain or shine (wear shoes that can handle mud). Rail Explorers runs in light rain but cancels for thunderstorms &mdash; call 877-833-8588 if weather is rough. Old Frankfort Pike is actually gorgeous in the mist. Brown Hotel, Big Four Bridge, and NuLu are all rain-proof. Just bring a light rain jacket.</div>
+    <div class="tip-box reveal"><strong>Rain plan:</strong> Horse country works in rain! Keeneland workouts run unless lightning. Farm tours run rain or shine (wear shoes that can handle mud). Rail Explorers runs in light rain but cancels for thunderstorms &mdash; call 877-833-8588 if weather is rough. Old Frankfort Pike is actually gorgeous in the mist. Brown Hotel, Big Four Bridge, and NuLu are all rain-proof. Just bring a light rain jacket.</div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">5:30 AM</span>
         <div class="activity-title"><div class="activity-name">Wake Up &amp; Go</div></div>
@@ -718,7 +856,7 @@
       </div></div>
     </div>
 
-    <div class="activity highlight">
+    <div class="activity highlight reveal">
       <div class="activity-head">
         <span class="time-badge">7:15 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://keeneland.com" target="_blank">Keeneland &mdash; Morning Workouts</a></div></div>
@@ -733,7 +871,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">7:50 AM</span>
         <div class="activity-title"><div class="activity-name">Track Kitchen &mdash; Quick Breakfast</div></div>
@@ -744,7 +882,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">8:30 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://seethechampions.com" target="_blank">Private Horse Farm Tours</a></div></div>
@@ -759,7 +897,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">1:00 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://railexplorers.net" target="_blank">Rail Explorers &mdash; Railbikes</a></div></div>
@@ -775,7 +913,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">2:30 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.wallacestation.com" target="_blank">Wallace Station &mdash; Late Lunch</a></div></div>
@@ -790,7 +928,7 @@
       </div></div>
     </div>
 
-    <div class="activity highlight">
+    <div class="activity highlight reveal">
       <div class="activity-head">
         <span class="time-badge">3:00 PM</span>
         <div class="activity-title"><div class="activity-name">Old Frankfort Pike Scenic Drive</div></div>
@@ -801,7 +939,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">3:30 PM</span>
         <div class="activity-title"><div class="activity-name">Midway, Kentucky</div></div>
@@ -815,7 +953,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">5:30 PM</span>
         <div class="activity-title"><div class="activity-name">Arrive Louisville</div></div>
@@ -826,7 +964,7 @@
       </div></div>
     </div>
 
-    <div class="activity highlight">
+    <div class="activity highlight reveal">
       <div class="activity-head">
         <span class="time-badge">6:00 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.brownhotel.com/dining/lobby-bar" target="_blank">The Brown Hotel &mdash; The Hot Brown</a></div></div>
@@ -841,7 +979,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">7:30 PM</span>
         <div class="activity-title"><div class="activity-name">Big Four Bridge</div></div>
@@ -855,7 +993,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">8:30 PM</span>
         <div class="activity-title"><div class="activity-name">NuLu Dessert</div></div>
@@ -870,7 +1008,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">9:30 PM</span>
         <div class="activity-title"><div class="activity-name">Check Into Airbnb &amp; Rest</div></div>
@@ -884,19 +1022,21 @@
 
   <!-- ═══════ OAKS DAY ═══════ -->
   <section class="day-section" id="oaks">
-    <div class="day-banner bg-oaks">
+    <div class="day-banner bg-oaks reveal">
+      <div class="banner-emoji">&#x1F338;</div>
+      <div class="banner-circle"></div>
       <div class="day-label">Day 3 &middot; Friday, May 1</div>
       <h2>Kentucky Oaks</h2>
       <div class="tagline">The Locals' Derby &mdash; PINK OUT</div>
     </div>
 
-    <div class="day-vibe">Many Louisville locals prefer Oaks Day to the Derby itself. The Kentucky Oaks is the premier race for three-year-old fillies, it draws 100,000+ fans, and the atmosphere is electric but more local and more approachable than Saturday. Friday is the <strong>Pink Out</strong> &mdash; the entire crowd wears pink for breast cancer awareness. <strong>Big 2026 news:</strong> NBC is broadcasting the Oaks in primetime &mdash; <strong>CONFIRMED for 8:00 PM on NBC.</strong> The race will run under the lights. We're witnessing history.</div>
+    <div class="day-vibe reveal">Many Louisville locals prefer Oaks Day to the Derby itself. The Kentucky Oaks is the premier race for three-year-old fillies, it draws 100,000+ fans, and the atmosphere is electric but more local and more approachable than Saturday. Friday is the <strong>Pink Out</strong> &mdash; the entire crowd wears pink for breast cancer awareness. <strong>Big 2026 news:</strong> NBC is broadcasting the Oaks in primetime &mdash; <strong>CONFIRMED for 8:00 PM on NBC.</strong> The race will run under the lights. We're witnessing history.</div>
 
-    <div class="tip-box"><strong>Dress code:</strong> PINK! Everyone wears pink for the Pink Out. Hats, sundresses, the works. Comfortable shoes &mdash; you'll be on your feet 10+ hours. Bring backup flats. No umbrellas allowed &mdash; clear poncho if rain threatens.</div>
+    <div class="tip-box reveal"><strong>Dress code:</strong> PINK! Everyone wears pink for the Pink Out. Hats, sundresses, the works. Comfortable shoes &mdash; you'll be on your feet 10+ hours. Bring backup flats. No umbrellas allowed &mdash; clear poncho if rain threatens.</div>
 
-    <div class="tip-box"><strong>Churchill Downs 2026 renovation:</strong> Major new spaces this year &mdash; the new <strong>Conservatory</strong>, <strong>Pagoda Club &amp; Terrace</strong>, <strong>Stargazer Lounge</strong>, and renovated <strong>Finishing Line Suites</strong>. Check your Derby Experiences package for access to these new spaces.</div>
+    <div class="tip-box reveal"><strong>Churchill Downs 2026 renovation:</strong> Major new spaces this year &mdash; the new <strong>Conservatory</strong>, <strong>Pagoda Club &amp; Terrace</strong>, <strong>Stargazer Lounge</strong>, and renovated <strong>Finishing Line Suites</strong>. Check your Derby Experiences package for access to these new spaces.</div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">9:00 AM</span>
         <div class="activity-title"><div class="activity-name">Get Oaks-Ready</div></div>
@@ -907,7 +1047,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">10:30 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.churchilldowns.com" target="_blank">Enter Churchill Downs &mdash; Premium Seats</a></div></div>
@@ -922,7 +1062,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">All Day</span>
         <div class="activity-title"><div class="activity-name">Races, Paddock, Betting, Fashion</div></div>
@@ -933,7 +1073,7 @@
       </div></div>
     </div>
 
-    <div class="activity highlight">
+    <div class="activity highlight reveal">
       <div class="activity-head">
         <span class="time-badge">~8:00 PM NBC / ~8:30 PM Post</span>
         <div class="activity-title"><div class="activity-name">THE KENTUCKY OAKS &mdash; NBC Primetime</div></div>
@@ -944,7 +1084,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">9:45 PM</span>
         <div class="activity-title"><div class="activity-name">Optional Late Night Out</div></div>
@@ -962,15 +1102,17 @@
 
   <!-- ═══════ DERBY DAY ═══════ -->
   <section class="day-section" id="derby">
-    <div class="day-banner bg-derby">
+    <div class="day-banner bg-derby reveal">
+      <div class="banner-emoji">&#x1F3C7;</div>
+      <div class="banner-circle"></div>
       <div class="day-label">Day 4 &middot; Saturday, May 2</div>
       <h2>The Kentucky Derby</h2>
       <div class="tagline">The Reason for Everything</div>
     </div>
 
-    <div class="day-vibe">The 152nd Kentucky Derby. The Most Exciting Two Minutes in Sports. The race that this entire trip was built around. We have premium tickets. Post time: confirmed ~6:57 PM ET.</div>
+    <div class="day-vibe reveal">The 152nd Kentucky Derby. The Most Exciting Two Minutes in Sports. The race that this entire trip was built around. We have premium tickets. Post time: confirmed ~6:57 PM ET.</div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">8:30 AM</span>
         <div class="activity-title"><div class="activity-name">Get Derby-Ready</div></div>
@@ -981,7 +1123,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">10:30 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.churchilldowns.com" target="_blank">Enter Churchill Downs &mdash; Derby Day</a></div></div>
@@ -992,7 +1134,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">All Day</span>
         <div class="activity-title"><div class="activity-name">Premium Experience</div></div>
@@ -1003,7 +1145,7 @@
       </div></div>
     </div>
 
-    <div class="activity highlight">
+    <div class="activity highlight reveal">
       <div class="activity-head">
         <span class="time-badge">~6:45 PM</span>
         <div class="activity-title"><div class="activity-name">"My Old Kentucky Home"</div></div>
@@ -1014,7 +1156,7 @@
       </div></div>
     </div>
 
-    <div class="activity highlight">
+    <div class="activity highlight reveal">
       <div class="activity-head">
         <span class="time-badge">~6:57 PM</span>
         <div class="activity-title"><div class="activity-name">THE KENTUCKY DERBY</div></div>
@@ -1025,7 +1167,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">8:30 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://garageonmarket.com" target="_blank">Optional Late Night Out &mdash; Garage Bar</a></div></div>
@@ -1042,15 +1184,17 @@
 
   <!-- ═══════ SUNDAY ═══════ -->
   <section class="day-section" id="sunday">
-    <div class="day-banner bg-sunday">
+    <div class="day-banner bg-sunday reveal">
+      <div class="banner-emoji">&#x2600;&#xFE0F;</div>
+      <div class="banner-circle"></div>
       <div class="day-label">Day 5 &middot; Sunday, May 3</div>
       <h2>The Long Goodbye</h2>
       <div class="tagline">Louisville &rarr; Home</div>
     </div>
 
-    <div class="day-vibe">We went to the Kentucky Derby last night. Nobody is waking up early. Sleep until you wake up. Pack slowly. We don't fly out of CVG until 8:00 PM &mdash; so we have a full day to say goodbye to Louisville. Two options below depending on whether we want to hit the American Sign Museum on the way to the airport.</div>
+    <div class="day-vibe reveal">We went to the Kentucky Derby last night. Nobody is waking up early. Sleep until you wake up. Pack slowly. We don't fly out of CVG until 8:00 PM &mdash; so we have a full day to say goodbye to Louisville. Two options below depending on whether we want to hit the American Sign Museum on the way to the airport.</div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">10:00 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.sluggermuseum.com" target="_blank">Louisville Slugger Museum</a></div></div>
@@ -1065,7 +1209,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">11:00 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://alicenter.org" target="_blank">Muhammad Ali Center</a></div></div>
@@ -1080,7 +1224,7 @@
       </div></div>
     </div>
 
-    <div class="activity">
+    <div class="activity reveal">
       <div class="activity-head">
         <span class="time-badge">12:30 PM</span>
         <div class="activity-title"><div class="activity-name">NuLu Brunch &amp; Exploring</div></div>
@@ -1097,7 +1241,7 @@
     </div>
 
     <!-- ─── OPTION A ─── -->
-    <div class="option-card">
+    <div class="option-card reveal">
       <div class="option-header">Option A &mdash; With Sign Museum</div>
       <div class="option-body">
         <p>This route adds the <strong>American Sign Museum</strong> in Cincinnati on the way to the airport &mdash; 42,000 sq ft of vintage signs, neon, and an indoor town called Signville. A perfect bookend to the trip. Tighter schedule but worth it if you're up for it.</p>
@@ -1114,7 +1258,7 @@
     </div>
 
     <!-- ─── OPTION B ─── -->
-    <div class="option-card">
+    <div class="option-card reveal">
       <div class="option-header">Option B &mdash; One More Louisville Adventure</div>
       <div class="option-body">
         <p>Skip the Sign Museum and spend the afternoon in Louisville instead. More relaxed pace, one last adventure, and Graeter's to close it out.</p>
@@ -1139,13 +1283,14 @@
 
   <!-- ═══════ BOOKING ═══════ -->
   <section class="day-section" id="book">
-    <div class="day-banner bg-book">
+    <div class="day-banner bg-book reveal">
+      <div class="banner-circle"></div>
       <div class="day-label">Action Items</div>
       <h2>Book &amp; Confirm</h2>
       <div class="tagline">Everything that needs a reservation or call</div>
     </div>
 
-    <div class="book-card">
+    <div class="book-card reveal">
       <h4>Pepp &amp; Dolores &mdash; Dinner (Wed Apr 29)</h4>
       <p>Reserve for 4 at 6:15 PM. Wednesday hours: 4&ndash;10 PM.</p>
       <div class="activity-links" style="padding:8px 0 0;">
@@ -1153,7 +1298,7 @@
       </div>
     </div>
 
-    <div class="book-card">
+    <div class="book-card reveal">
       <h4>Horse Farm Tours &mdash; Thu Apr 30</h4>
       <p>Unique Horse Farm Tours. Book the 8:30 AM tour for 4.</p>
       <div class="activity-links" style="padding:8px 0 0;">
@@ -1161,7 +1306,7 @@
       </div>
     </div>
 
-    <div class="book-card">
+    <div class="book-card reveal">
       <h4>Rail Explorers &mdash; Railbikes (Thu Apr 30, 1:00 PM)</h4>
       <p>2026 schedule is LIVE! Book the 1:00 PM Quad departure for 4 riders.</p>
       <div style="margin-top:6px;"><span class="price-tag">$199 for Quad</span></div>
@@ -1171,17 +1316,17 @@
       </div>
     </div>
 
-    <div class="book-card">
+    <div class="book-card reveal">
       <h4>The Brown Hotel &mdash; Hot Brown (Thu Apr 30)</h4>
       <p><strong>BOOKED</strong> &mdash; Danny reserved for 4 at 6:00 PM. Business casual. $100/person food &amp; beverage minimum.</p>
     </div>
 
-    <div class="book-card">
+    <div class="book-card reveal">
       <h4>Churchill Downs &mdash; Derby Experiences</h4>
       <p>Premium tickets for Oaks (Fri) &amp; Derby (Sat). Check your package for access to the new 2026 spaces: Conservatory, Pagoda Club &amp; Terrace, Stargazer Lounge, Finishing Line Suites.</p>
     </div>
 
-    <div class="book-card">
+    <div class="book-card reveal">
       <h4>Mega Cavern &mdash; Sunday Option B</h4>
       <p>Louisville Mega Cavern. Glow-in-dark neon experience.</p>
       <div style="margin-top:6px;"><span class="price-tag">$39.99/person</span></div>
@@ -1190,7 +1335,7 @@
       </div>
     </div>
 
-    <div class="book-card">
+    <div class="book-card reveal">
       <h4>American Sign Museum &mdash; Sunday Option A</h4>
       <p>1330 Monmouth Ave, Cincinnati. No reservation needed. Closes 4 PM Sunday.</p>
       <div style="margin-top:6px;"><span class="price-tag">$20/adult &middot; $15/student</span></div>
@@ -1201,7 +1346,7 @@
   </section>
 
   <!-- ═══════ CHECKLISTS ═══════ -->
-  <section class="checklist-section" id="packing">
+  <section class="checklist-section reveal" id="packing">
     <div class="checklist-header" onclick="toggleChecklist(this)">
       <h3>&#x1F392; Packing Essentials</h3>
       <div class="chevron">&rsaquo;</div>
@@ -1229,7 +1374,7 @@
     </div></div>
   </section>
 
-  <section class="checklist-section" id="tips">
+  <section class="checklist-section reveal" id="tips">
     <div class="checklist-header" onclick="toggleChecklist(this)">
       <h3>&#x1F4A1; Know Before You Go</h3>
       <div class="chevron">&rsaquo;</div>
@@ -1249,7 +1394,7 @@
 
 <footer class="footer">
   <p>Five days. A museum on the border of freedom. 85 stone steps to a view that makes you homesick for a city that isn't even yours. Horses in the mist at dawn. A foal eating peppermints from your hand. A railbike soaring above the Kentucky River. A tunnel of trees on the most beautiful road you've ever driven. A hundred-year-old sandwich. A bridge lit up over the river. 100,000 people screaming under the lights. 150,000 singing the same song. A horse draped in roses. And ice cream at the beginning and at the end.</p>
-  <div class="sign-off">Let's go.</div>
+  <div class="sign-off">Let's go. &#x1F40E;</div>
 </footer>
 
 <script>
@@ -1309,6 +1454,49 @@
       }
     });
   });
+
+  // ─── Countdown timer ───
+  function updateCountdown() {
+    const landing = new Date('2026-04-29T14:48:00-04:00');
+    const now = new Date();
+    const diff = landing - now;
+
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML = '<div class="countdown-live">WE\'RE HERE! \uD83D\uDC34</div>';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = hours;
+    document.getElementById('cd-mins').textContent = mins;
+    document.getElementById('cd-secs').textContent = secs;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ─── Scroll-reveal animations ───
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting);
+      visible.forEach((entry, i) => {
+        setTimeout(() => {
+          entry.target.classList.add('revealed');
+        }, i * 60);
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+  }
 </script>
 </body>
 </html>
