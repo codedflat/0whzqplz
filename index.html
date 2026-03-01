@@ -68,30 +68,77 @@
                 url('hero-bg.jpg') center/cover no-repeat;
     background-color: var(--navy-deep);
     color: white;
-    padding: calc(env(safe-area-inset-top, 12px) + 40px) 20px 40px;
+    padding: calc(env(safe-area-inset-top, 12px) + 48px) 20px 44px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
   .hero h1 {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 38px;
+    font-size: 40px;
     font-weight: 900;
     letter-spacing: -0.5px;
     line-height: 1.1;
+    background: linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #ffffff 40%,
+      #F5DFA0 50%,
+      #ffffff 60%,
+      #ffffff 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% { background-position: 100% 0; }
+    50% { background-position: -100% 0; }
+  }
+  .hero-tagline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 14px auto;
+    width: 200px;
+  }
+  .hero-divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,168,83,0.5), transparent);
+  }
+  .hero-divider-icon {
+    font-size: 16px;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px rgba(212,168,83,0.4));
   }
   .hero-sub {
-    color: var(--gold);
+    color: rgba(255,255,255,0.7);
     font-size: 14px;
-    font-weight: 600;
-    margin-top: 6px;
-    letter-spacing: 1px;
+    font-weight: 500;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
   }
   .hero-dates {
     font-size: 13px;
-    opacity: 0.6;
-    margin-top: 3px;
+    opacity: 0.5;
+    margin-top: 2px;
   }
   .hero-crew {
-    margin-top: 16px;
+    margin-top: 18px;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -662,6 +709,12 @@
     .activity:active, .link-btn:active {
       transform: none !important;
     }
+    .hero h1 {
+      animation: none;
+      background: none;
+      -webkit-text-fill-color: white;
+      color: white;
+    }
   }
 
   /* ─── RESPONSIVE ─── */
@@ -677,6 +730,12 @@
 
 <header class="hero">
   <h1>Kentucky Derby 2026</h1>
+  <div class="hero-tagline">The Memory Maker</div>
+  <div class="hero-divider">
+    <div class="hero-divider-line"></div>
+    <div class="hero-divider-icon">&#x1F339;</div>
+    <div class="hero-divider-line"></div>
+  </div>
   <div class="hero-sub">Five Days &middot; Two States &middot; One Trip</div>
   <div class="hero-dates">April 29 &ndash; May 3</div>
   <div class="hero-crew">
