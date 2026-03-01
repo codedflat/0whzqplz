@@ -298,33 +298,14 @@
     color: var(--navy);
   }
   .chevron {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text3);
-    font-size: 18px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-top: 1px;
-  }
-  .activity.collapsed .chevron {
-    transform: rotate(-90deg);
+    display: none;
   }
 
-  /* Collapse animation using grid */
   .activity-body {
-    display: grid;
-    grid-template-rows: 1fr;
-    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .activity.collapsed .activity-body {
-    grid-template-rows: 0fr;
+    display: block;
   }
   .body-inner {
-    overflow: hidden;
-    min-height: 0;
+    overflow: visible;
   }
 
   .activity-desc {
@@ -540,13 +521,6 @@
 
   /* ─── QUICK VIEW MODE ─── */
   body.quick-view .activity-desc { display: none; }
-  body.quick-view .activity-body {
-    grid-template-rows: 1fr !important;
-  }
-  body.quick-view .activity.collapsed .activity-body {
-    grid-template-rows: 1fr !important;
-  }
-  body.quick-view .chevron { display: none; }
   body.quick-view .day-vibe { display: none; }
   body.quick-view .intro-card { display: none; }
   body.quick-view .activity { margin: 6px 0; }
@@ -611,7 +585,7 @@
     <div class="tip-box"><strong>Rain plan:</strong> Freedom Center, dinner, and Graeter's are all indoors &mdash; no changes needed. <strong>If it's raining, skip Mt. Adams</strong> (stone steps get slippery, no sunset to see). Instead, spend more time exploring OTR after dinner &mdash; <strong>Rhinegeist Brewery</strong> (1910 Elm St, massive taproom &mdash; root beer for you, something stronger for the dads) or the <strong>OTR Candy Bar</strong> (vintage soda floats).</div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">2:48 PM</span>
         <div class="activity-title"><div class="activity-name">Land at CVG Airport</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -622,7 +596,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">4:15 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://freedomcenter.org" target="_blank">National Underground Railroad Freedom Center</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -637,7 +611,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">5:00 PM</span>
         <div class="activity-title"><div class="activity-name">Explore Over-the-Rhine</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -651,7 +625,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">6:15 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.peppanddolores.com" target="_blank">Dinner &mdash; Pepp &amp; Dolores</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -667,7 +641,7 @@
     </div>
 
     <div class="activity highlight">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">7:45 PM</span>
         <div class="activity-title"><div class="activity-name">Mt. Adams &amp; The Immaculata Steps</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -681,7 +655,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">9:00 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.graeters.com" target="_blank">Graeter's Ice Cream</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -696,7 +670,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">9:30 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.hotelcovington.com" target="_blank">Hotel Covington</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -726,7 +700,7 @@
     <div class="tip-box"><strong>Rain plan:</strong> Horse country works in rain! Keeneland workouts run unless lightning. Farm tours run rain or shine (wear shoes that can handle mud). Rail Explorers runs in light rain but cancels for thunderstorms &mdash; call 877-833-8588 if weather is rough. Old Frankfort Pike is actually gorgeous in the mist. Brown Hotel, Big Four Bridge, and NuLu are all rain-proof. Just bring a light rain jacket.</div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">5:30 AM</span>
         <div class="activity-title"><div class="activity-name">Wake Up &amp; Go</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -737,7 +711,7 @@
     </div>
 
     <div class="activity highlight">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">7:15 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://keeneland.com" target="_blank">Keeneland &mdash; Morning Workouts</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -752,7 +726,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">7:50 AM</span>
         <div class="activity-title"><div class="activity-name">Track Kitchen &mdash; Quick Breakfast</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -763,7 +737,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">8:30 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://seethechampions.com" target="_blank">Private Horse Farm Tours</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -778,7 +752,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">1:00 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://railexplorers.net" target="_blank">Rail Explorers &mdash; Railbikes</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -794,7 +768,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">2:30 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.wallacestation.com" target="_blank">Wallace Station &mdash; Late Lunch</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -809,7 +783,7 @@
     </div>
 
     <div class="activity highlight">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">3:00 PM</span>
         <div class="activity-title"><div class="activity-name">Old Frankfort Pike Scenic Drive</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -820,7 +794,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">3:30 PM</span>
         <div class="activity-title"><div class="activity-name">Midway, Kentucky</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -834,7 +808,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">5:30 PM</span>
         <div class="activity-title"><div class="activity-name">Arrive Louisville</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -845,7 +819,7 @@
     </div>
 
     <div class="activity highlight">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">6:00 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.brownhotel.com/dining/lobby-bar" target="_blank">The Brown Hotel &mdash; The Hot Brown</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -860,7 +834,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">7:30 PM</span>
         <div class="activity-title"><div class="activity-name">Big Four Bridge</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -874,7 +848,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">8:30 PM</span>
         <div class="activity-title"><div class="activity-name">NuLu Dessert</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -889,7 +863,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">9:30 PM</span>
         <div class="activity-title"><div class="activity-name">Check Into Airbnb &amp; Rest</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -915,7 +889,7 @@
     <div class="tip-box"><strong>Churchill Downs 2026 renovation:</strong> Major new spaces this year &mdash; the new <strong>Conservatory</strong>, <strong>Pagoda Club &amp; Terrace</strong>, <strong>Stargazer Lounge</strong>, and renovated <strong>Finishing Line Suites</strong>. Check your Derby Experiences package for access to these new spaces.</div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">9:00 AM</span>
         <div class="activity-title"><div class="activity-name">Get Oaks-Ready</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -926,7 +900,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">10:30 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.churchilldowns.com" target="_blank">Enter Churchill Downs &mdash; Premium Seats</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -941,7 +915,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">All Day</span>
         <div class="activity-title"><div class="activity-name">Races, Paddock, Betting, Fashion</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -952,7 +926,7 @@
     </div>
 
     <div class="activity highlight">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">~8:00 PM NBC / ~8:30 PM Post</span>
         <div class="activity-title"><div class="activity-name">THE KENTUCKY OAKS &mdash; NBC Primetime</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -963,7 +937,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">9:45 PM</span>
         <div class="activity-title"><div class="activity-name">Optional Late Night Out</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -989,7 +963,7 @@
     <div class="day-vibe">The 152nd Kentucky Derby. The Most Exciting Two Minutes in Sports. The race that this entire trip was built around. We have premium tickets. Post time: confirmed ~6:57 PM ET.</div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">8:30 AM</span>
         <div class="activity-title"><div class="activity-name">Get Derby-Ready</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1000,7 +974,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">10:30 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.churchilldowns.com" target="_blank">Enter Churchill Downs &mdash; Derby Day</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1011,7 +985,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">All Day</span>
         <div class="activity-title"><div class="activity-name">Premium Experience</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1022,7 +996,7 @@
     </div>
 
     <div class="activity highlight">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">~6:45 PM</span>
         <div class="activity-title"><div class="activity-name">"My Old Kentucky Home"</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1033,7 +1007,7 @@
     </div>
 
     <div class="activity highlight">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">~6:57 PM</span>
         <div class="activity-title"><div class="activity-name">THE KENTUCKY DERBY</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1044,7 +1018,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">8:30 PM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://garageonmarket.com" target="_blank">Optional Late Night Out &mdash; Garage Bar</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1069,7 +1043,7 @@
     <div class="day-vibe">We went to the Kentucky Derby last night. Nobody is waking up early. Sleep until you wake up. Pack slowly. We don't fly out of CVG until 8:00 PM &mdash; so we have a full day to say goodbye to Louisville. Two options below depending on whether we want to hit the American Sign Museum on the way to the airport.</div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">10:00 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://www.sluggermuseum.com" target="_blank">Louisville Slugger Museum</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1084,7 +1058,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">11:00 AM</span>
         <div class="activity-title"><div class="activity-name"><a href="https://alicenter.org" target="_blank">Muhammad Ali Center</a></div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1099,7 +1073,7 @@
     </div>
 
     <div class="activity">
-      <div class="activity-head" onclick="toggle(this)">
+      <div class="activity-head">
         <span class="time-badge">12:30 PM</span>
         <div class="activity-title"><div class="activity-name">NuLu Brunch &amp; Exploring</div></div>
         <div class="chevron">&rsaquo;</div>
@@ -1271,17 +1245,12 @@
 </footer>
 
 <script>
-  // ─── Activity expand/collapse ───
-  function toggle(el) {
-    el.closest('.activity').classList.toggle('collapsed');
-  }
-
   // ─── Checklist expand/collapse ───
   function toggleChecklist(el) {
     el.closest('.checklist-section').classList.toggle('collapsed');
   }
 
-  // ─── View mode toggle ───
+  // ─── View mode toggle (Full = descriptions + stories, Quick = just times + links) ───
   function setView(mode) {
     const body = document.body;
     const btnFull = document.getElementById('btnFull');
@@ -1294,8 +1263,6 @@
       body.classList.remove('quick-view');
       btnFull.classList.add('active');
       btnQuick.classList.remove('active');
-      // Expand all activities when switching back to full
-      document.querySelectorAll('.activity.collapsed').forEach(a => a.classList.remove('collapsed'));
     }
   }
 
