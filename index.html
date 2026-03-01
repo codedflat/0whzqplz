@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Kentucky Derby Trip 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B3A5C;
+    --navy-deep: #0f2438;
+    --gold: #C5A258;
+    --gold-light: #F5EDD6;
+    --cream: #F7F5F0;
+    --white: #FFFFFF;
+    --text: #1C1C1E;
+    --text2: #636366;
+    --text3: #8E8E93;
+    --sep: #E5E5EA;
+    --rose: #C62828;
+    --green-bg: #E8F5E9;
+    --green: #2E7D32;
+    --blue-bg: #E3F2FD;
+    --blue: #1565C0;
+    --orange-bg: #FFF3E0;
+    --orange: #E65100;
+    --radius: 14px;
+    --nav-h: 52px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: white;
+    padding: calc(env(safe-area-inset-top, 12px) + 24px) 20px 22px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+  }
+  .hero-sub {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+  .hero-dates {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+  .hero-crew {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .hero-crew span {
+    background: rgba(197,162,88,0.15);
+    border: 1px solid rgba(197,162,88,0.25);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ─── STICKY NAV ─── */
+  .day-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--sep);
+    padding: 0;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+  }
+  .nav-scroll {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+    padding: 0 12px;
+    flex: 1;
+    align-items: center;
+  }
+  .nav-scroll::-webkit-scrollbar { display: none; }
+  .nav-pill {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text2);
+    background: var(--cream);
+    border: 1px solid var(--sep);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-pill.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+  .view-toggle {
+    flex-shrink: 0;
+    display: flex;
+    background: var(--cream);
+    border-radius: 8px;
+    margin-right: 12px;
+    overflow: hidden;
+    border: 1px solid var(--sep);
+  }
+  .view-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    color: var(--text3);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .view-btn.active {
+    background: var(--navy);
+    color: white;
+  }
+
+  /* ─── CONTAINER ─── */
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+
+  /* ─── INTRO ─── */
+  .intro-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+  .intro-card p { margin-bottom: 14px; }
+  .intro-card p:last-child { margin-bottom: 0; }
+  .intro-card strong { color: var(--navy); }
+  .intro-card em { color: var(--text); }
+
+  /* ─── DAY SECTIONS ─── */
+  .day-section {
+    scroll-margin-top: calc(var(--nav-h) + 8px);
+    margin: 20px 0;
+  }
+
+  .day-banner {
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .day-banner .day-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.8;
+    font-weight: 600;
+  }
+  .day-banner h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 900;
+    margin: 2px 0;
+  }
+  .day-banner .tagline {
+    font-size: 14px;
+    opacity: 0.85;
+    font-style: italic;
+  }
+  .bg-cinci    { background: linear-gradient(135deg, #1B3A5C, #2a5a8c); }
+  .bg-horse    { background: linear-gradient(135deg, #2E5339, #4a8c5e); }
+  .bg-arrive   { background: linear-gradient(135deg, #5c3d1e, #8c6a3d); }
+  .bg-oaks     { background: linear-gradient(135deg, #8c1b6e, #E91E8C); }
+  .bg-derby    { background: linear-gradient(135deg, #C62828, #e64a19); }
+  .bg-sunday   { background: linear-gradient(135deg, #b8942d, #d4a84a); color: var(--navy); }
+  .bg-book     { background: linear-gradient(135deg, #1B3A5C, #C5A258); }
+
+  .day-vibe {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin: 10px 0;
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .tip-box {
+    background: var(--gold-light);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 16px;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #5a4a2a;
+    line-height: 1.6;
+  }
+  .tip-box strong { color: var(--navy); }
+
+  /* ─── ACTIVITY CARDS ─── */
+  .activity {
+    background: var(--white);
+    border-radius: var(--radius);
+    margin: 8px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .activity.highlight {
+    border-left: 4px solid var(--rose);
+  }
+  .activity-head {
+    display: flex;
+    align-items: flex-start;
+    padding: 14px 16px;
+    cursor: pointer;
+    gap: 12px;
+    min-height: 44px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .activity-head:active {
+    background: rgba(0,0,0,0.02);
+  }
+
+  .time-badge {
+    flex-shrink: 0;
+    background: var(--navy);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-top: 1px;
+    white-space: nowrap;
+  }
+  .highlight .time-badge {
+    background: var(--rose);
+  }
+  .activity-title {
+    flex: 1;
+    min-width: 0;
+  }
+  .activity-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .activity-name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--gold);
+  }
+  .activity-name a:active {
+    color: var(--navy);
+  }
+  .chevron {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text3);
+    font-size: 18px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1px;
+  }
+  .activity.collapsed .chevron {
+    transform: rotate(-90deg);
+  }
+
+  /* Collapse animation using grid */
+  .activity-body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .activity.collapsed .activity-body {
+    grid-template-rows: 0fr;
+  }
+  .body-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .activity-desc {
+    padding: 0 16px 12px;
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+  .activity-desc strong { color: var(--text); }
+  .activity-desc a {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .activity-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 16px 14px;
+  }
+  .link-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    min-height: 44px;
+    transition: opacity 0.15s;
+  }
+  .link-btn:active { opacity: 0.7; }
+  .link-btn.map  { background: var(--green-bg); color: var(--green); }
+  .link-btn.web  { background: var(--blue-bg); color: var(--blue); }
+  .link-btn.book { background: var(--orange-bg); color: var(--orange); }
+
+  /* Two-column link layout for short links */
+  .links-row {
+    display: flex;
+    gap: 6px;
+    padding: 0 16px 14px;
+  }
+  .links-row .link-btn { flex: 1; justify-content: center; }
+
+  /* ─── OPTION CARDS ─── */
+  .option-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .option-header {
+    padding: 14px 16px 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    border-bottom: 1px solid var(--sep);
+  }
+  .option-body {
+    padding: 12px 16px 14px;
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+  .option-body strong { color: var(--text); }
+  .option-body a {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .option-timeline {
+    margin: 8px 0;
+    padding: 0;
+    list-style: none;
+  }
+  .option-timeline li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--sep);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .option-timeline li:last-child { border-bottom: none; }
+  .option-time {
+    flex-shrink: 0;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 13px;
+    min-width: 65px;
+  }
+
+  /* ─── CHECKLISTS ─── */
+  .checklist-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .checklist-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .checklist-header:active { background: rgba(0,0,0,0.02); }
+  .checklist-header h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .checklist-body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .checklist-section.collapsed .checklist-body {
+    grid-template-rows: 0fr;
+  }
+  .checklist-body-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+  .checklist {
+    list-style: none;
+    padding: 0 18px 16px;
+  }
+  .checklist li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--sep);
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
+    color: var(--text2);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '\2610';
+    font-size: 18px;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: -1px;
+  }
+  .checklist li strong { color: var(--text); }
+
+  /* ─── BOOKING CARDS ─── */
+  .book-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    margin: 8px 0;
+    padding: 16px 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .book-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .book-card p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .book-card a {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .book-card .price-tag {
+    display: inline-block;
+    background: var(--gold-light);
+    color: #5a4a2a;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy-deep);
+    color: white;
+    padding: 32px 20px calc(32px + env(safe-area-inset-bottom, 0px));
+    text-align: center;
+    margin-top: 24px;
+  }
+  .footer p {
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.8;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .footer .sign-off {
+    margin-top: 16px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    color: var(--gold);
+  }
+
+  /* ─── QUICK VIEW MODE ─── */
+  body.quick-view .activity-desc { display: none; }
+  body.quick-view .activity-body {
+    grid-template-rows: 1fr !important;
+  }
+  body.quick-view .activity.collapsed .activity-body {
+    grid-template-rows: 1fr !important;
+  }
+  body.quick-view .chevron { display: none; }
+  body.quick-view .day-vibe { display: none; }
+  body.quick-view .intro-card { display: none; }
+  body.quick-view .activity { margin: 6px 0; }
+  body.quick-view .activity-links { padding-top: 0; }
+  body.quick-view .links-row { padding-top: 0; }
+  body.quick-view .option-body { display: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (min-width: 640px) {
+    .container { padding: 0 20px; }
+    .activity-links { flex-direction: row; flex-wrap: wrap; }
+    .link-btn { flex: 0 1 auto; }
+    .links-row .link-btn { flex: 0 1 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Kentucky Derby 2026</h1>
+  <div class="hero-sub">Five Days &middot; Two States &middot; One Trip</div>
+  <div class="hero-dates">April 29 &ndash; May 3</div>
+  <div class="hero-crew">
+    <span>Don &amp; Ella</span>
+    <span>Danny &amp; Alexis</span>
+  </div>
+</header>
+
+<nav class="day-nav" id="dayNav">
+  <div class="nav-scroll">
+    <a href="#day1" class="nav-pill active" data-day="day1">Day 1</a>
+    <a href="#day2" class="nav-pill" data-day="day2">Day 2</a>
+    <a href="#oaks" class="nav-pill" data-day="oaks">Oaks</a>
+    <a href="#derby" class="nav-pill" data-day="derby">Derby</a>
+    <a href="#sunday" class="nav-pill" data-day="sunday">Sunday</a>
+    <a href="#book" class="nav-pill" data-day="book">Book</a>
+  </div>
+  <div class="view-toggle">
+    <button class="view-btn active" onclick="setView('full')" id="btnFull">&#x1F4D6;</button>
+    <button class="view-btn" onclick="setView('quick')" id="btnQuick">&#x1F5FA;&#xFE0F;</button>
+  </div>
+</nav>
+
+<main class="container">
+
+  <div class="intro-card">
+    <p>This isn't a normal vacation. It's five days designed around one idea: <em>pack in everything, waste nothing, make the kind of memories that stick for decades.</em></p>
+    <p>We start in <strong>Cincinnati</strong> &mdash; a museum on the border between slavery and freedom, dinner at a top-100 restaurant, and a sunset from 85 stone steps above the Ohio River. Then we wake up before the sun and drive into <strong>Kentucky horse country</strong> &mdash; Thoroughbreds thundering past at 40 mph, breakfast with jockeys, hand-feeding baby foals, and railbikes through the Bluegrass. Then <strong>Louisville</strong> &mdash; Kentucky's most famous dish, Oaks Day under the lights, and the Derby itself in premium seats.</p>
+    <p style="font-size:13px;color:var(--text3);">Tap any activity to show or hide details. Tap &#x1F5FA;&#xFE0F; above for a quick-reference view.</p>
+  </div>
+
+  <!-- ═══════ DAY 1 — CINCINNATI ═══════ -->
+  <section class="day-section" id="day1">
+    <div class="day-banner bg-cinci">
+      <div class="day-label">Day 1 &middot; Wednesday, April 29</div>
+      <h2>Cincinnati</h2>
+      <div class="tagline">The Earned View</div>
+    </div>
+
+    <div class="day-vibe">We land at 2:48 PM and hit the ground running. By 9 PM we'll have stood on the banks of the Ohio River where enslaved people crossed to freedom, eaten housemade pasta at a top-100 restaurant, climbed 85 stone steps to the highest point in Cincinnati, and watched the entire skyline light up beneath us.</div>
+
+    <div class="tip-box"><strong>Rain plan:</strong> Freedom Center, dinner, and Graeter's are all indoors &mdash; no changes needed. <strong>If it's raining, skip Mt. Adams</strong> (stone steps get slippery, no sunset to see). Instead, spend more time exploring OTR after dinner &mdash; <strong>Rhinegeist Brewery</strong> (1910 Elm St, massive taproom &mdash; root beer for you, something stronger for the dads) or the <strong>OTR Candy Bar</strong> (vintage soda floats).</div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">2:48 PM</span>
+        <div class="activity-title"><div class="activity-name">Land at CVG Airport</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Baggage claim, then Hertz shuttle &mdash; Danny already booked a Kia Sorento SUV, pickup at 3:00 PM. We should be driving away by ~4:00 PM. Grab snacks, water, and a phone charger for the car. You'll want them all tomorrow.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">4:15 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://freedomcenter.org" target="_blank">National Underground Railroad Freedom Center</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">This museum sits on the banks of the Ohio River &mdash; the actual, physical line that separated slave states from free states. Enslaved people crossed this exact stretch of water, often at night, risking everything. <strong>We have 45 minutes before it closes at 5 PM &mdash; this is a focused visit.</strong> Head straight to the <strong>2nd floor slave pen</strong> &mdash; an actual structure from a Kentucky farm where human beings were held, moved piece by piece into the museum. It's the most powerful piece and anchors everything else. Then walk through the <strong>Underground Railroad gallery</strong> on the same floor. These two stops alone will change the way you see the Ohio River for the rest of the trip.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=National%20Underground%20Railroad%20Freedom%20Center%2C%20Cincinnati%2C%20OH" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://freedomcenter.org" target="_blank">&#x1F310; freedomcenter.org</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">5:00 PM</span>
+        <div class="activity-title"><div class="activity-name">Explore Over-the-Rhine</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Drive five minutes north to OTR &mdash; the largest collection of Italianate architecture in the country. Street art, murals, restored buildings, boutiques, and the hum of a neighborhood that came back from the dead. Walk Vine Street and Main Street. There's a concentrated stretch of murals along Main Street between 12th and 14th that's worth seeking out. We have about an hour before dinner.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Over-the-Rhine%2C%20Cincinnati%2C%20OH" target="_blank">&#x1F4CD; Google Maps</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">6:15 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.peppanddolores.com" target="_blank">Dinner &mdash; Pepp &amp; Dolores</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Named one of the <strong>top 100 restaurants in the United States</strong> by OpenTable. 4.9-star rating. Housemade pasta that will ruin every Italian restaurant you eat at for the next year. The name comes from the owners' Italian grandparents, and the whole place feels like it &mdash; warm, loud, familial. Wednesday hours are 4&ndash;10 PM. The Sunday Sauce (spaghetti with meatball and braised pork, $19) is the signature. The spicy vodka mezze rigatoni ($17) is what you'll fight over. The lobster squid-ink pasta ($25) is Danny's move.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Pepp%20%26%20Dolores%2C%20Cincinnati%2C%20OH" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn book" href="https://www.opentable.com/r/pepp-and-dolores-cincinnati" target="_blank">&#x1F37D;&#xFE0F; Reserve on OpenTable</a>
+          <a class="link-btn web" href="https://www.peppanddolores.com" target="_blank">&#x1F310; peppanddolores.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity highlight">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">7:45 PM</span>
+        <div class="activity-title"><div class="activity-name">Mt. Adams &amp; The Immaculata Steps</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">This is the moment that makes Day 1 unforgettable. 85 stone steps climbing straight up to a limestone church built in 1859, perched on the highest point in Cincinnati. <strong>Climb. Every. Step.</strong> At the top, turn around. The entire Ohio River valley opens up &mdash; the Cincinnati skyline glowing in the last light, the river curving south into Kentucky, the bridges lit up like jewels. Sunset on April 29 is approximately 8:35 PM. Aim to reach the top by 8:15 for the golden-to-blue-hour transition. Bring your phone for photos but then put it away for a minute and just look.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Immaculata%20Church%2C%20Mt%20Adams%2C%20Cincinnati%2C%20OH" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">9:00 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.graeters.com" target="_blank">Graeter's Ice Cream</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Black Raspberry Chocolate Chip. This is not optional. Graeter's has been making ice cream since 1870 using a French pot process that makes it denser and richer than anything else. The chocolate chunks are the size of your thumb. You will want seconds.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Graeter%27s%20Ice%20Cream%2C%20Vine%20Street%2C%20Cincinnati%2C%20OH" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://www.graeters.com" target="_blank">&#x1F310; graeters.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">9:30 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.hotelcovington.com" target="_blank">Hotel Covington</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">A beautifully converted department store with boutique rooms and a rooftop with skyline views. More importantly: it's on the Kentucky side of the river, which means tomorrow morning we're already on I-75 South. No bridge traffic. That head start matters. Set your alarms. All of them.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Covington%2C%20Covington%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://www.hotelcovington.com" target="_blank">&#x1F310; hotelcovington.com</a>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ═══════ DAY 2 — HORSE COUNTRY + LOUISVILLE ARRIVAL ═══════ -->
+  <section class="day-section" id="day2">
+    <div class="day-banner bg-horse">
+      <div class="day-label">Day 2 &middot; Thursday, April 30</div>
+      <h2>Horse Country</h2>
+      <div class="tagline">Before the World Wakes Up</div>
+    </div>
+
+    <div class="day-vibe">This is the day that separates this trip from anything you've done before. Thoroughbreds thundering past close enough to feel the air move. Three private horse farms where you'll hand-feed baby foals. Railbikes through the Bluegrass to a bridge 283 feet above the Kentucky River. The most beautiful drive in the eastern United States. Yes, we're waking up at 5:30 AM. Trust the process.</div>
+
+    <div class="tip-box"><strong>Thurby note:</strong> Churchill Downs has Thursday racing (gates open 10:30 AM) &mdash; it's called Thurby and Louisville locals love it &mdash; but we're skipping it for horse country. What we'll see today is something you can't get at the track.</div>
+
+    <div class="tip-box"><strong>Rain plan:</strong> Horse country works in rain! Keeneland workouts run unless lightning. Farm tours run rain or shine (wear shoes that can handle mud). Rail Explorers runs in light rain but cancels for thunderstorms &mdash; call 877-833-8588 if weather is rough. Old Frankfort Pike is actually gorgeous in the mist. Brown Hotel, Big Four Bridge, and NuLu are all rain-proof. Just bring a light rain jacket.</div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">5:30 AM</span>
+        <div class="activity-title"><div class="activity-name">Wake Up &amp; Go</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">No sit-down breakfast. Grab whatever the hotel has for grab-and-go &mdash; coffee for the dads, a muffin for the car &mdash; and get on the road. We're eating breakfast at a place that's worth the drive.</div>
+      </div></div>
+    </div>
+
+    <div class="activity highlight">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">7:15 AM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://keeneland.com" target="_blank">Keeneland &mdash; Morning Workouts</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Pull into Keeneland through Gate 2. Walk to the rail. In the soft morning light, Thoroughbred racehorses come thundering past at 40 miles an hour. They run in pairs, jockeys crouched low, hooves shaking the ground. Steam rises off their backs in the cool April air. The track takes a renovation break at 7:00&ndash;7:30, then the fastest horses run speed work right after. That 20-minute post-break window is the best part of the morning. FREE, no reservation, open to the public.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Keeneland%20Race%20Course%2C%20Lexington%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://keeneland.com" target="_blank">&#x1F310; keeneland.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">7:50 AM</span>
+        <div class="activity-title"><div class="activity-name">Track Kitchen &mdash; Quick Breakfast</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">A cafeteria inside the track where jockeys, trainers, exercise riders, and horse owners eat breakfast. The person at the table next to you might be the jockey who rode a Derby winner. The food is simple, cheap, and made for people who've been working since 4:30 AM. We've got 15 minutes &mdash; biscuits and gravy to go &mdash; because we have a farm tour to catch.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">8:30 AM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://seethechampions.com" target="_blank">Private Horse Farm Tours</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">For 2.5&ndash;3 hours, we visit three working Thoroughbred breeding and training farms normally closed to the public. Barns where stallions worth millions live. Paddocks where mares graze with newborn foals. Alexis will hand-feed a three-week-old foal peppermints. She'll stroke a mare's nose while the guide tells the story of that horse's bloodline &mdash; maybe she's the daughter of a Derby winner. The smell of hay, the warmth of a horse's breath, the sound of foals playing &mdash; this is the kind of sensory memory that stays forever.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Unique%20Horse%20Farm%20Tours%2C%20Lexington%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://seethechampions.com" target="_blank">&#x1F310; seethechampions.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">1:00 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://railexplorers.net" target="_blank">Rail Explorers &mdash; Railbikes</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">The afternoon's secret weapon. Pedal a four-person railbike on actual train tracks through Bluegrass horse farms and limestone cliffs. The turnaround is near Young's High Bridge &mdash; 283 feet above the Kentucky River. Electric-assist motors make the pedaling easy. This is a perspective on horse country you literally cannot get any other way: gliding silently through private farmland on century-old rails. <strong>$199 for a Quad bike (4 riders). 1:00 PM departure from Bluegrass Museum.</strong> Thursday departures also available at 10:30 AM and 3:30 PM.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Rail%20Explorers%2C%20Versailles%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn book" href="https://www.railexplorers.net/book/bluegrass/search" target="_blank">&#x1F3AB; Book Now</a>
+          <a class="link-btn web" href="https://railexplorers.net" target="_blank">&#x1F310; railexplorers.net</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">2:30 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.wallacestation.com" target="_blank">Wallace Station &mdash; Late Lunch</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">A beloved sandwich shop on Old Frankfort Pike belonging to Chef Ouita Michel &mdash; an eight-time James Beard semifinalist. Racing silks and farm logos on the walls. Baked goods from Weisenberger Mill flour (since 1865). Horse farm workers and trainers eat here. The ham and swiss on house bread is the sleeper hit. The cookies are massive.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Wallace%20Station%20Deli%20%26%20Bakery%2C%20Versailles%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://www.wallacestation.com" target="_blank">&#x1F310; wallacestation.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity highlight">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">3:00 PM</span>
+        <div class="activity-title"><div class="activity-name">Old Frankfort Pike Scenic Drive</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Rolling Bluegrass hills. Dry-laid limestone fences that have stood for two centuries. White-board horse fences stretching to the horizon. Legendary farms &mdash; Three Chimneys, Darby Dan, Donamire &mdash; where Derby winners were born. A stretch where ancient trees form a cathedral canopy over the road. At 3 PM the light has that honeyed quality that makes Kentucky horse country look like a painting. Roll the windows down. Go slow. Stop often.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">3:30 PM</span>
+        <div class="activity-title"><div class="activity-name">Midway, Kentucky</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">One street. Railroad tracks down the middle. Independent shops, galleries, and restaurants in restored 19th-century buildings. Horses grazing in fields at the edge of town. 20&ndash;30 minutes to walk the street.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Midway%2C%20Kentucky" target="_blank">&#x1F4CD; Google Maps</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">5:30 PM</span>
+        <div class="activity-title"><div class="activity-name">Arrive Louisville</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Welcome to Derby City. We skip the Airbnb and head straight to dinner. After a day that started at 5:30 AM at a racetrack, everyone deserves to sit down in a beautiful room and eat the most famous dish in Kentucky.</div>
+      </div></div>
+    </div>
+
+    <div class="activity highlight">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">6:00 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.brownhotel.com/dining/lobby-bar" target="_blank">The Brown Hotel &mdash; The Hot Brown</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">This is a pilgrimage. In 1926, Chef Fred Schmidt created an open-faced turkey sandwich smothered in Mornay sauce, topped with bacon and tomato, then broiled until bubbling. A hundred years later, it's Kentucky's most famous dish, and this is the only place to eat the original. The room is gorgeous &mdash; dark wood, brass, old-hotel elegance that makes you sit up straighter. Business casual. Danny will order two. There's a $100/person food &amp; beverage minimum &mdash; so go big. Danny already booked this one: <strong>6:00 PM Thursday.</strong></div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=The%20Brown%20Hotel%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://www.brownhotel.com/dining/lobby-bar" target="_blank">&#x1F310; brownhotel.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">7:30 PM</span>
+        <div class="activity-title"><div class="activity-name">Big Four Bridge</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">A converted railroad bridge spanning the Ohio River, beautifully lit at night with a nightly light show. Walk across &mdash; the river is wide and dark below, the Louisville skyline glows behind you. On the Indiana side, a spiral ramp descends into a park. The perfect post-dinner walk. ~30 min round trip. Free.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Big%20Four%20Bridge%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">8:30 PM</span>
+        <div class="activity-title"><div class="activity-name">NuLu Dessert</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">East Market Street &mdash; Louisville's NuLu district. Five blocks packed with shops, street art, and restaurants. <a href="https://www.louisvillecream.com" target="_blank"><strong>Louisville Cream</strong></a> has been named Kentucky's best ice cream shop &mdash; small-batch, creative flavors. Or <strong>Muth's Candies</strong> &mdash; Louisville's oldest candy shop, since 1921 &mdash; makes the Modjeska, a caramel-covered marshmallow that exists nowhere else on Earth.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=NuLu%20District%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Google Maps</a>
+          <a class="link-btn web" href="https://www.louisvillecream.com" target="_blank">&#x1F310; Louisville Cream</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">9:30 PM</span>
+        <div class="activity-title"><div class="activity-name">Check Into Airbnb &amp; Rest</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Now we check in. Unpack. Decompress. Tomorrow is Oaks Day &mdash; the day Louisville locals will tell you is actually the better day at Churchill Downs. Set your alarms.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ═══════ OAKS DAY ═══════ -->
+  <section class="day-section" id="oaks">
+    <div class="day-banner bg-oaks">
+      <div class="day-label">Day 3 &middot; Friday, May 1</div>
+      <h2>Kentucky Oaks</h2>
+      <div class="tagline">The Locals' Derby &mdash; PINK OUT</div>
+    </div>
+
+    <div class="day-vibe">Many Louisville locals prefer Oaks Day to the Derby itself. The Kentucky Oaks is the premier race for three-year-old fillies, it draws 100,000+ fans, and the atmosphere is electric but more local and more approachable than Saturday. Friday is the <strong>Pink Out</strong> &mdash; the entire crowd wears pink for breast cancer awareness. <strong>Big 2026 news:</strong> NBC is broadcasting the Oaks in primetime &mdash; <strong>CONFIRMED for 8:00 PM on NBC.</strong> The race will run under the lights. We're witnessing history.</div>
+
+    <div class="tip-box"><strong>Dress code:</strong> PINK! Everyone wears pink for the Pink Out. Hats, sundresses, the works. Comfortable shoes &mdash; you'll be on your feet 10+ hours. Bring backup flats. No umbrellas allowed &mdash; clear poncho if rain threatens.</div>
+
+    <div class="tip-box"><strong>Churchill Downs 2026 renovation:</strong> Major new spaces this year &mdash; the new <strong>Conservatory</strong>, <strong>Pagoda Club &amp; Terrace</strong>, <strong>Stargazer Lounge</strong>, and renovated <strong>Finishing Line Suites</strong>. Check your Derby Experiences package for access to these new spaces.</div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">9:00 AM</span>
+        <div class="activity-title"><div class="activity-name">Get Oaks-Ready</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Pink outfits. Hats. Breakfast at the Airbnb. This is a full fashion day. Give yourself time.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">10:30 AM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.churchilldowns.com" target="_blank">Enter Churchill Downs &mdash; Premium Seats</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">We have <strong>Derby Experiences premium tickets</strong> &mdash; reserved seating, all-inclusive food and beverages, programs, and dedicated hosts. We're also looking into a <strong>Paddock Tour</strong> (expert-guided, Danny checking with Derby Experiences). A hospitality spread, the works. We're here for roughly 10 hours. Settle in.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Churchill%20Downs%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://www.churchilldowns.com" target="_blank">&#x1F310; churchilldowns.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">All Day</span>
+        <div class="activity-title"><div class="activity-name">Races, Paddock, Betting, Fashion</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Watch undercard races from premium seats. $2 win bets are perfect for learning. Explore the grounds &mdash; with premium tickets we have access to areas general admission doesn't. Stand at the rail and feel the ground shake when the horses come past. The fashion gets more spectacular as the day goes on.</div>
+      </div></div>
+    </div>
+
+    <div class="activity highlight">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">~8:00 PM NBC / ~8:30 PM Post</span>
+        <div class="activity-title"><div class="activity-name">THE KENTUCKY OAKS &mdash; NBC Primetime</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">One and a quarter miles. Ninety seconds. One hundred thousand people screaming under the lights. The first primetime Oaks in history &mdash; NBC coverage begins 8:00 PM, post time ~8:30 PM. The winner gets draped in a garland of stargazer lilies. After Keeneland at dawn and the private horse farms, Alexis will watch these horses with completely different eyes than everyone around her. She'll know what these animals feel like up close. That's the gift of the first two days.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">9:45 PM</span>
+        <div class="activity-title"><div class="activity-name">Optional Late Night Out</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Meals are included all day with our Derby Experiences tickets, so no need to eat &mdash; but if we're feeling it: <a href="https://www.royalshotchicken.com" target="_blank"><strong>Royals Hot Chicken</strong></a> &mdash; fast, delicious, spice levels from mild to nuclear, in and out in 30 minutes. Or <a href="https://www.feastbbq.com" target="_blank"><strong>Feast BBQ</strong></a> in NuLu &mdash; excellent smoked meats, great sides. Lay out your Derby outfits when you get home!</div>
+        <div class="links-row">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Royals%20Hot%20Chicken%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Royals</a>
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Feast%20BBQ%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Feast BBQ</a>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ═══════ DERBY DAY ═══════ -->
+  <section class="day-section" id="derby">
+    <div class="day-banner bg-derby">
+      <div class="day-label">Day 4 &middot; Saturday, May 2</div>
+      <h2>The Kentucky Derby</h2>
+      <div class="tagline">The Reason for Everything</div>
+    </div>
+
+    <div class="day-vibe">The 152nd Kentucky Derby. The Most Exciting Two Minutes in Sports. The race that this entire trip was built around. We have premium tickets. Post time: confirmed ~6:57 PM ET.</div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">8:30 AM</span>
+        <div class="activity-title"><div class="activity-name">Get Derby-Ready</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">You laid out your outfits last night after Oaks &mdash; you now know what works and what you'd do differently. Hats, sundresses, the whole thing. Breakfast at the Airbnb. It's going to be a long, incredible day.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">10:30 AM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.churchilldowns.com" target="_blank">Enter Churchill Downs &mdash; Derby Day</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Yesterday we were first-timers. Today we walk in as people who've done this before. The crowd is bigger &mdash; 150,000+. The energy is sharper. The hats are more spectacular. The air itself feels charged. Somewhere in the barns, twenty three-year-old Thoroughbreds are being prepared for the most important race of their lives.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">All Day</span>
+        <div class="activity-title"><div class="activity-name">Premium Experience</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">The undercard races on Derby Day are some of the best racing of the year. These aren't throwaway races. Bet on them. We're also looking into the <strong>Derby Day Paddock Tour</strong> &mdash; an expert-guided walk through the paddock before a race we pick, watching horses being saddled, jockeys getting final instructions, the whole pre-race ritual up close. After Keeneland at dawn and the private horse farms, we'll look at these horses with completely different eyes than everyone around us.</div>
+      </div></div>
+    </div>
+
+    <div class="activity highlight">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">~6:45 PM</span>
+        <div class="activity-title"><div class="activity-name">"My Old Kentucky Home"</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">The entire crowd &mdash; 150,000 people &mdash; stands and sings together. It doesn't matter that we're from out of state. You will feel this in your chest.</div>
+      </div></div>
+    </div>
+
+    <div class="activity highlight">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">~6:57 PM</span>
+        <div class="activity-title"><div class="activity-name">THE KENTUCKY DERBY</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">One and a quarter miles. Twenty horses. Two minutes. And then the winner is draped in a garland of 554 red roses, and we were there. In seats worth being in.</div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">8:30 PM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://garageonmarket.com" target="_blank">Optional Late Night Out &mdash; Garage Bar</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Meals are included all day with our Derby Experiences tickets &mdash; but if we want to celebrate out on the town, Louisville will be electric. Wood-fired pizza in a gorgeous courtyard inside a converted service station in NuLu. The post-Derby energy on East Market Street will be unreal.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Garage%20Bar%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ═══════ SUNDAY ═══════ -->
+  <section class="day-section" id="sunday">
+    <div class="day-banner bg-sunday">
+      <div class="day-label">Day 5 &middot; Sunday, May 3</div>
+      <h2>The Long Goodbye</h2>
+      <div class="tagline">Louisville &rarr; Home</div>
+    </div>
+
+    <div class="day-vibe">We went to the Kentucky Derby last night. Nobody is waking up early. Sleep until you wake up. Pack slowly. We don't fly out of CVG until 8:00 PM &mdash; so we have a full day to say goodbye to Louisville. Two options below depending on whether we want to hit the American Sign Museum on the way to the airport.</div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">10:00 AM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://www.sluggermuseum.com" target="_blank">Louisville Slugger Museum</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">A 120-foot steel baseball bat leaning against the building. Inside: the actual production line where MLB bats are turned on lathes. The vault of player specs (every MLB player has their own bat profile). Everyone gets a free mini bat. Danny will be in heaven. Factory tours don't run Sundays but the museum, batting cages, and Babe Ruth gallery are still excellent. 60&ndash;75 min.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Louisville%20Slugger%20Museum%20%26%20Factory%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://www.sluggermuseum.com" target="_blank">&#x1F310; sluggermuseum.com</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">11:00 AM</span>
+        <div class="activity-title"><div class="activity-name"><a href="https://alicenter.org" target="_blank">Muhammad Ali Center</a></div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc">Three floors on the life and legacy of Muhammad Ali, born right here in Louisville. 2026 marks the 10th anniversary of Ali's passing. A full-size boxing ring with projected footage. The exhibit on Ali's social justice work connects to the Freedom Center we visited Day 1. The "I Am Ali" immersive experience on the top floor is the highlight. 90 minutes. 5-minute walk from Slugger Museum.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Muhammad%20Ali%20Center%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Google Maps &middot; Reviews &amp; Hours</a>
+          <a class="link-btn web" href="https://alicenter.org" target="_blank">&#x1F310; alicenter.org</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-head" onclick="toggle(this)">
+        <span class="time-badge">12:30 PM</span>
+        <div class="activity-title"><div class="activity-name">NuLu Brunch &amp; Exploring</div></div>
+        <div class="chevron">&rsaquo;</div>
+      </div>
+      <div class="activity-body"><div class="body-inner">
+        <div class="activity-desc"><a href="https://biscuitbelly.com/nulu/" target="_blank"><strong>Biscuit Belly</strong></a> &mdash; fried chicken on a biscuit with pimento cheese, roasted jalape&ntilde;os, pickles, and a fried green tomato. Order the "Gravy Train" to try all three gravies. Or <a href="https://www.loulouonmarket.com" target="_blank"><strong>Lou Lou on Market</strong></a> &mdash; the whole New Orleans experience: Cajun-Creole, beignets, shrimp and grits, a basement speakeasy with live music. Or try <strong>NuLu Mashup Food Hall</strong> (750 E Jefferson St) &mdash; 7 eateries under one roof, everyone picks their own thing. Then explore NuLu properly. Boutiques. Street art. Vintage shops. <strong>Muth's Candies</strong> for Modjeskas.</div>
+        <div class="activity-links">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Biscuit%20Belly%20NuLu%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Biscuit Belly &middot; Google Maps</a>
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Lou+Lou+on+Market%2C+Louisville%2C+KY" target="_blank">&#x1F4CD; Lou Lou &middot; Google Maps</a>
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=NuLu%20Mashup%2C%20750%20E%20Jefferson%20St%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; NuLu Mashup &middot; Google Maps</a>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- ─── OPTION A ─── -->
+    <div class="option-card">
+      <div class="option-header">Option A &mdash; With Sign Museum</div>
+      <div class="option-body">
+        <p>This route adds the <strong>American Sign Museum</strong> in Cincinnati on the way to the airport &mdash; 42,000 sq ft of vintage signs, neon, and an indoor town called Signville. A perfect bookend to the trip. Tighter schedule but worth it if you're up for it.</p>
+        <ul class="option-timeline">
+          <li><span class="option-time">2:00 PM</span> Depart Louisville</li>
+          <li><span class="option-time">3:30 PM</span> <a href="https://www.americansignmuseum.org" target="_blank"><strong>American Sign Museum</strong></a> &mdash; 1330 Monmouth Ave, Cincinnati. $20/adult, $15/student. 30-minute focused visit (closes 4 PM). Gold-leaf signs, neon, Signville indoor town</li>
+          <li><span class="option-time">4:15 PM</span> Arrive CVG &mdash; return rental, terminal, dinner at airport</li>
+        </ul>
+        <div class="activity-links" style="padding:10px 0 0;">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=American%20Sign%20Museum%2C%201330%20Monmouth%20Ave%2C%20Cincinnati%2C%20OH" target="_blank">&#x1F4CD; Sign Museum &middot; Google Maps</a>
+          <a class="link-btn web" href="https://www.americansignmuseum.org" target="_blank">&#x1F310; americansignmuseum.org</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── OPTION B ─── -->
+    <div class="option-card">
+      <div class="option-header">Option B &mdash; One More Louisville Adventure</div>
+      <div class="option-body">
+        <p>Skip the Sign Museum and spend the afternoon in Louisville instead. More relaxed pace, one last adventure, and Graeter's to close it out.</p>
+        <ul class="option-timeline">
+          <li><span class="option-time">2:00 PM</span> <strong>Pick one last adventure:</strong></li>
+        </ul>
+        <p style="margin:8px 0;"><a href="https://louisvillemegacavern.com" target="_blank"><strong>Louisville Mega Cavern</strong></a> &mdash; 100-acre underground cave. New glow-in-dark neon experience. $39.99/person.</p>
+        <p style="margin:8px 0;"><strong>Old Louisville</strong> &mdash; the largest Victorian preservation district in America. Ornate mansions with turrets, stained glass, iron gates. Free.</p>
+        <p style="margin:8px 0;"><strong>Falls of the Ohio</strong> &mdash; a 390-million-year-old fossil bed on the Indiana side of the river.</p>
+        <ul class="option-timeline" style="margin-top:12px;">
+          <li><span class="option-time">3:30 PM</span> <a href="https://www.graeters.com" target="_blank"><strong>Graeter's &mdash; One Last Time</strong></a>. Black Raspberry Chocolate Chip. This is how the trip started in Cincinnati on Day 1. This is how it ends in Louisville on Day 5. The symmetry is intentional.</li>
+          <li><span class="option-time">4:00 PM</span> Depart Louisville &rarr; I-71 North</li>
+          <li><span class="option-time">5:30 PM</span> Arrive CVG &mdash; return rental, terminal, dinner at airport</li>
+        </ul>
+        <div class="activity-links" style="padding:10px 0 0;">
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Louisville%20Mega%20Cavern%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Mega Cavern &middot; Google Maps</a>
+          <a class="link-btn map" href="https://www.google.com/maps/search/?api=1&query=Graeter%27s%20Ice%20Cream%2C%20Bardstown%20Road%2C%20Louisville%2C%20KY" target="_blank">&#x1F4CD; Graeter's &middot; Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ BOOKING ═══════ -->
+  <section class="day-section" id="book">
+    <div class="day-banner bg-book">
+      <div class="day-label">Action Items</div>
+      <h2>Book &amp; Confirm</h2>
+      <div class="tagline">Everything that needs a reservation or call</div>
+    </div>
+
+    <div class="book-card">
+      <h4>Pepp &amp; Dolores &mdash; Dinner (Wed Apr 29)</h4>
+      <p>Reserve for 4 at 6:15 PM. Wednesday hours: 4&ndash;10 PM.</p>
+      <div class="activity-links" style="padding:8px 0 0;">
+        <a class="link-btn book" href="https://www.opentable.com/r/pepp-and-dolores-cincinnati" target="_blank">&#x1F37D;&#xFE0F; Reserve on OpenTable</a>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <h4>Horse Farm Tours &mdash; Thu Apr 30</h4>
+      <p>Unique Horse Farm Tours. Book the 8:30 AM tour for 4.</p>
+      <div class="activity-links" style="padding:8px 0 0;">
+        <a class="link-btn web" href="https://seethechampions.com" target="_blank">&#x1F310; seethechampions.com</a>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <h4>Rail Explorers &mdash; Railbikes (Thu Apr 30, 1:00 PM)</h4>
+      <p>2026 schedule is LIVE! Book the 1:00 PM Quad departure for 4 riders.</p>
+      <div style="margin-top:6px;"><span class="price-tag">$199 for Quad</span></div>
+      <div class="activity-links" style="padding:8px 0 0;">
+        <a class="link-btn book" href="https://www.railexplorers.net/book/bluegrass/search" target="_blank">&#x1F3AB; Book Now</a>
+        <a class="link-btn web" href="https://railexplorers.net" target="_blank">&#x1F310; railexplorers.net</a>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <h4>The Brown Hotel &mdash; Hot Brown (Thu Apr 30)</h4>
+      <p><strong>BOOKED</strong> &mdash; Danny reserved for 4 at 6:00 PM. Business casual. $100/person food &amp; beverage minimum.</p>
+    </div>
+
+    <div class="book-card">
+      <h4>Churchill Downs &mdash; Derby Experiences</h4>
+      <p>Premium tickets for Oaks (Fri) &amp; Derby (Sat). Check your package for access to the new 2026 spaces: Conservatory, Pagoda Club &amp; Terrace, Stargazer Lounge, Finishing Line Suites.</p>
+    </div>
+
+    <div class="book-card">
+      <h4>Mega Cavern &mdash; Sunday Option B</h4>
+      <p>Louisville Mega Cavern. Glow-in-dark neon experience.</p>
+      <div style="margin-top:6px;"><span class="price-tag">$39.99/person</span></div>
+      <div class="activity-links" style="padding:8px 0 0;">
+        <a class="link-btn web" href="https://louisvillemegacavern.com" target="_blank">&#x1F310; Mega Cavern</a>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <h4>American Sign Museum &mdash; Sunday Option A</h4>
+      <p>1330 Monmouth Ave, Cincinnati. No reservation needed. Closes 4 PM Sunday.</p>
+      <div style="margin-top:6px;"><span class="price-tag">$20/adult &middot; $15/student</span></div>
+      <div class="activity-links" style="padding:8px 0 0;">
+        <a class="link-btn web" href="https://www.americansignmuseum.org" target="_blank">&#x1F310; americansignmuseum.org</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CHECKLISTS ═══════ -->
+  <section class="checklist-section" id="packing">
+    <div class="checklist-header" onclick="toggleChecklist(this)">
+      <h3>&#x1F392; Packing Essentials</h3>
+      <div class="chevron">&rsaquo;</div>
+    </div>
+    <div class="checklist-body"><div class="checklist-body-inner">
+      <ul class="checklist">
+        <li><strong>Derby Day outfit</strong> &mdash; hat, dress or suit, nice shoes. Think "Southern garden party"</li>
+        <li><strong>Oaks Day outfit &mdash; PINK theme</strong> &mdash; Friday is the Pink Out. Everyone needs something pink</li>
+        <li><strong>Brown Hotel outfit</strong> &mdash; business casual for Thursday dinner</li>
+        <li><strong>Backup comfortable shoes / flats</strong> &mdash; you'll be on your feet 10+ hours at Churchill Downs</li>
+        <li><strong>Closed-toe shoes</strong> for horse farm tours Thursday morning</li>
+        <li><strong>Light jacket or sweater</strong> &mdash; May mornings are 55&ndash;60&deg;F (Keeneland at 5:45 AM, evening exits at Churchill)</li>
+        <li><strong>Light rain jacket</strong> &mdash; check the forecast. Horse farms and OTR work fine in rain, but you'll want a layer</li>
+        <li><strong>Sunglasses</strong></li>
+        <li><strong>Hat/visor</strong> for non-Derby days (Keeneland, farms, Sunday exploring)</li>
+        <li>Sunscreen &mdash; Kentucky in May is warm and bright</li>
+        <li>Clear rain ponchos &mdash; no umbrellas allowed at Churchill Downs</li>
+        <li>Portable phone chargers <strong>+ charging cables</strong></li>
+        <li><strong>Small crossbody bag or daypack</strong> &mdash; 10+ hours at Churchill means carrying sunscreen, charger, cash, programs</li>
+        <li><strong>Binoculars</strong> &mdash; for track viewing and horse farms</li>
+        <li>Basic medications &mdash; ibuprofen, allergy meds for long outdoor days</li>
+        <li>Cash for Track Kitchen breakfast</li>
+        <li><strong>Download "My Old Kentucky Home" lyrics</strong> &mdash; 150,000 people sing this before the Derby. You'll want to know the words</li>
+      </ul>
+    </div></div>
+  </section>
+
+  <section class="checklist-section" id="tips">
+    <div class="checklist-header" onclick="toggleChecklist(this)">
+      <h3>&#x1F4A1; Know Before You Go</h3>
+      <div class="chevron">&rsaquo;</div>
+    </div>
+    <div class="checklist-body"><div class="checklist-body-inner">
+      <ul class="checklist">
+        <li><strong>Day 2 starts at 5:30 AM.</strong> Yes, really. Trust the process</li>
+        <li><strong>We have premium tickets.</strong> Reserved seating, all-inclusive food and beverages, programs. Derby Day Paddock Tour in the works too!</li>
+        <li><strong>Betting basics:</strong> $2 win bets are perfect for learning. Pick horses by name, color, jockey silks &mdash; whatever feels right</li>
+        <li><strong>Business casual</strong> for the Brown Hotel Thursday night. Everything else is casual until Churchill Downs</li>
+        <li><strong>The trip bookends with Graeter's</strong> &mdash; Cincinnati Day 1, Louisville Day 5. Black Raspberry Chocolate Chip. Non-negotiable</li>
+      </ul>
+    </div></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Five days. A museum on the border of freedom. 85 stone steps to a view that makes you homesick for a city that isn't even yours. Horses in the mist at dawn. A foal eating peppermints from your hand. A railbike soaring above the Kentucky River. A tunnel of trees on the most beautiful road you've ever driven. A hundred-year-old sandwich. A bridge lit up over the river. 100,000 people screaming under the lights. 150,000 singing the same song. A horse draped in roses. And ice cream at the beginning and at the end.</p>
+  <div class="sign-off">Let's go.</div>
+</footer>
+
+<script>
+  // ─── Activity expand/collapse ───
+  function toggle(el) {
+    el.closest('.activity').classList.toggle('collapsed');
+  }
+
+  // ─── Checklist expand/collapse ───
+  function toggleChecklist(el) {
+    el.closest('.checklist-section').classList.toggle('collapsed');
+  }
+
+  // ─── View mode toggle ───
+  function setView(mode) {
+    const body = document.body;
+    const btnFull = document.getElementById('btnFull');
+    const btnQuick = document.getElementById('btnQuick');
+    if (mode === 'quick') {
+      body.classList.add('quick-view');
+      btnQuick.classList.add('active');
+      btnFull.classList.remove('active');
+    } else {
+      body.classList.remove('quick-view');
+      btnFull.classList.add('active');
+      btnQuick.classList.remove('active');
+      // Expand all activities when switching back to full
+      document.querySelectorAll('.activity.collapsed').forEach(a => a.classList.remove('collapsed'));
+    }
+  }
+
+  // ─── Sticky nav: active pill on scroll ───
+  const sections = document.querySelectorAll('.day-section');
+  const pills = document.querySelectorAll('.nav-pill');
+  const navEl = document.getElementById('dayNav');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        pills.forEach(p => {
+          p.classList.toggle('active', p.dataset.day === id);
+          // Scroll active pill into view
+          if (p.dataset.day === id) {
+            p.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) + 10}px 0px -60% 0px`,
+    threshold: 0
+  });
+
+  sections.forEach(s => observer.observe(s));
+
+  // ─── Nav pill click: smooth scroll ───
+  pills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.day);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
